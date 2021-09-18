@@ -29,7 +29,7 @@ function Information() {
   return (
     <section className="Information">
       <article className="Information-content">
-        <h2>Informacion de contacto:</h2>
+        <h2>Informacion de contactos:</h2>
         <section className="Informacion-form">
           <form ref={form}>
             <input type="text" placeholder="Nombre completo" name="name" />
