@@ -4,7 +4,7 @@ function Footer() {
   return (
     <section className="Footer">
       <p className="Footer-title">PlatziConf</p>
-      <p className="Footer-copy">Todo los izquierdos reservados</p>
+      <p className="Footer-copy">Todo los derechos reservados</p>
     </section>
   );
 }
