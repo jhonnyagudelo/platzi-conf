@@ -1,32 +1,34 @@
 import React, { useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/components/Information.css';
-import { useRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContex';
+import '../styles/components/Information.css';
 
 function Information() {
   const { state, addToBuyer } = useContext(AppContext);
   const form = useRef(null);
+  const history = useHistory();
   const { cart } = state;
 
-  handleSubmit = () => {
-    const fromData = new fromData(form.current);
+  const handleSubmit = () => {
+    const formData = new FormData(form.current);
     const buyer = {
       name: formData.get('name'),
       email: formData.get('email'),
       address: formData.get('address'),
       apto: formData.get('apto'),
+      city: formData.get('city'),
       country: formData.get('country'),
       state: formData.get('state'),
-      city: formData.get('city'),
       phone: formData.get('phone'),
     };
+    addToBuyer(buyer);
+    console.log(buyer);
+    history.push('/checkout/payment');
   };
 
   return (
     <section className="Information">
       <article className="Information-content">
-        <input type="text" />
         <h2>Informacion de contacto:</h2>
         <section className="Informacion-form">
           <form ref={form}>
@@ -44,7 +46,9 @@ function Information() {
               <Link to="/checkout">Regresar</Link>
             </div>
             <div className="Information-next">
-              <button type="button">Pagar</button>
+              <button type="button" onClick={handleSubmit}>
+                Pagar
+              </button>
             </div>
           </section>
         </section>

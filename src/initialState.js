@@ -1,5 +1,11 @@
 export default {
   cart: [],
+  buyer: [
+    {
+      address: 'calle 34a 15 107, Palmira',
+    },
+  ],
+  orders: [],
   products: [
     {
       id: '1',
